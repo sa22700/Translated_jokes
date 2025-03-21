@@ -21,7 +21,13 @@ class TranslateJoke:
     def __init__(self, source_lang="en", target_lang="fi"):
         self.source_lang = source_lang
         self.target_lang = target_lang
-        self.translator = Translator(from_lang=self.source_lang, to_lang=self.target_lang)
+        self._translator = None
+
+    @property
+    def translator(self):
+        if self._translator is None:
+            self._translator = Translator(from_lang=self.source_lang, to_lang=self.target_lang)
+        return self._translator
 
     def translate(self, text):
         if not text or not text.strip():
