@@ -1,7 +1,9 @@
 # Translated_jokes
 
 **Program:** Translated_jokes
+
 **Author:** Pirkka Toivakka
+
 **License:** Apache License 2.0
 
 ## What does the program do?
@@ -39,8 +41,12 @@ pip install -r requirements.txt
 python make_jokes.py
 
 
+
+
 **Ohjelma:** Translated_jokes
+
 **Tekijä:** Pirkka Toivakka  
+
 **Lisenssi:** Apache License 2.0
 
 ## Mitä ohjelma tekee?
