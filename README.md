@@ -40,8 +40,7 @@ pip install -r requirements.txt
 
 python make_jokes.py
 
-
-
+---
 
 **Ohjelma:** Translated_jokes
 
