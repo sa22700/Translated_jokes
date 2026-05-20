@@ -1,0 +1,41 @@
+"""
+Copyright [2025] [Pirkka Toivakka]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
+
+from requests import get, exceptions
+from func_translate_joke import translate
+
+def fetch_joke():
+    url = "https://v2.jokeapi.dev/joke/Any"
+    try:
+        response = get(
+            url=url,
+            headers={"Accept": "application/json"},
+            params={"type": "single"},
+            timeout=10
+        )
+        if response.status_code == 200:
+            data = response.json()
+            joke = data.get("joke", "")
+            translated = translate(joke)
+            print(translated)
+        else:
+            print(f"Error: {response.status_code}, {response.text}")
+
+    except exceptions.RequestException as e:
+        print(e)
+
+if __name__ == "__main__":
+    fetch_joke()
